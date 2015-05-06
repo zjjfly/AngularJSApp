@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <base/>
+    <title>Your Shopping Cart</title>
+    <scribopt src="lib/angular.min.js"></scribopt>
+    <script src="js/module.js"></script>
+</head>
+<body ng-controller='CartController'>
+<h1>Your Order</h1>
+
+<div ng-repeat='item in items'>
+    <span>{{item.title}}</span> <input ng-model='item.quantity'/> <span>{{item.price
+			| currency}}</span> <span>{{item.price * item.quantity | currency}}</span>
+    <button ng-click="remove($index)">Remove</button>
+</div>
+<p>合计：{{total()| currency}}</p>
+<ul class="nav nav-pills">
+    <li>
+        <a href>Description</a></li>
+    <li>
+        <a href>Specs</a></li>
+    <li>
+        <a href>Reviews</a></li>
+</ul>
+</body>
+</html>
